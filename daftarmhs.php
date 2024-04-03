@@ -1,3 +1,7 @@
+<?php
+require('koneksi.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,7 +66,7 @@
       <div class="px-5 grid gap-y-2 w-full">
         <a
           class="hover:shadow-xl shadow-sm text-slate-700 hover:text-slate-50 w-full py-3 px-4 flex justify-start items-center h-[100%] rounded-xl gap-[20px] bg-slate-100 hover:bg-blue-600 active:bg-slate-500"
-          href="tambah.php"
+          href="./daftarfakultas/teknik.php"
         >
           <div class="p-3 bg-blue-600 rounded">
             <img src="assets/image/logo.png" alt="" width="50px" />
@@ -71,7 +75,7 @@
             <h6 class="text-normal text-[24px] font-bold">Fakultas Teknik</h6>
             <div class="w-full flex justify-between  border-t border-gray-400">
               <h1 class="text-base font-medium">Jumlah Mahasiswa</h1>
-              <h1 class="text-base font-bold">50</h1>
+              <h1 class="text-base font-bold"><?php echo $teknik ?></h1>
             </div>
             <div class="w-full flex justify-between border-t border-gray-400">
               <h1 class="text-base font-medium">Jumlah artikel</h1>

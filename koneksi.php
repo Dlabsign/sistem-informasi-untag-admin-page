@@ -10,6 +10,9 @@ if (!$conn) {
     die("Koneksi ke database gagal: " . mysqli_connect_error());
 }
 
+
+
+
 // -------------- Hitung Jumlah Laki
 $jumlah_laki_query = "SELECT COUNT(*) AS jumlah_laki FROM tbl_mhsiswa WHERE jns_kelamin = 'L'";
 $result_laki = $conn->query($jumlah_laki_query);
@@ -35,6 +38,15 @@ $result_jumlahmhs = $conn->query($jumlahmhs_query);
 $row_jumlahmhs = $result_jumlahmhs->fetch_assoc() ?? ["jumlah_mahasiswa" => 0];
 // Ambil nilai jumlah mahasiswa
 $jumlahmhs = $row_jumlahmhs["jumlah_mahasiswa"];
+// ========================================================
+
+// -------------- Hitung Jumlah Mahasiswa Teknik
+$teknik_query = "SELECT COUNT(*) AS jumlah_mahasiswa FROM tbl_mhsiswa WHERE jurusan IN ('informatika', 'mesin', 'industri')";
+$result_teknik = $conn->query($teknik_query);
+// Ambil baris pertama hasil atau set jumlahmhs menjadi 0 jika tidak ada hasil
+$row_teknik = $result_teknik->fetch_assoc() ?? ["jumlah_mahasiswa" => 0];
+// Ambil nilai jumlah mahasiswa
+$teknik = $row_teknik["jumlah_mahasiswa"];
 // ========================================================
 
 
