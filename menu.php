@@ -33,7 +33,7 @@
       <h6 class="text-sm font-medium">Menu</h6>
     </a>
     <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
-      href="dashboard.php">
+      href="daftarfakultas.php">
       <i class="fa-solid fa-house"></i>
       <h6 class="text-sm text-center font-medium">Daftar Mahasiswa</h6>
     </a>

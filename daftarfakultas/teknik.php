@@ -21,6 +21,15 @@ $tbl_infor = mysqli_query($conn, $infor);
 
 $mesin = "SELECT * FROM tbl_mhsiswa WHERE jurusan='Mesin'";
 $tbl_mesin = mysqli_query($conn, $mesin);
+
+$Arsitek = "SELECT * FROM tbl_mhsiswa WHERE jurusan='Arsitek'";
+$tbl_Arsitek = mysqli_query($conn, $Arsitek);
+
+$Industri = "SELECT * FROM tbl_mhsiswa WHERE jurusan='Industri'";
+$tbl_Industri = mysqli_query($conn, $Industri);
+
+$Elektro = "SELECT * FROM tbl_mhsiswa WHERE jurusan='Elektro'";
+$tbl_Elektro = mysqli_query($conn, $Elektro);
 ?>
 
 <!DOCTYPE html>
@@ -44,13 +53,14 @@ $tbl_mesin = mysqli_query($conn, $mesin);
 
 <body class="bg-gray-300 mb-24">
   <div class="w-full flex justify-between items-center my-3 px-4">
-    <a href="../daftarmhs.php" class="fa-solid fa-arrow-left text-[20px]"></a>
+    <a href="../daftarfakultas.php" class="fa-solid fa-arrow-left text-[20px]"></a>
     <h6 class="text-normal text-[20px] font-medium">Fakultas Teknik</h6>
     <a class="fa-solid fa-rotate-right fa-spin text-[20px]" href="teknik.php"></a>
   </div>
 
-  <section class="w-full py-4 bg-white text-center">
-    <h2 class="font-bold text-xl">INFORMATIKA</h2>
+  <!-- Informatika -->
+  <section class="w-full bg-white text-center ">
+    <h2 class="font-bold text-xl bg-blue-500 text-gray-50 py-4 uppercase">Tabel Jurusan INFORMATIKA</h2>
     <div class="overflow-x-auto w- ">
       <div class="inline-block min-w-full lg:px-8">
         <div class="overflow-hidden">
@@ -91,15 +101,303 @@ $tbl_mesin = mysqli_query($conn, $mesin);
                     </td>
                     <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
                       <!-- Tombol edit -->
-                      <button class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50"
-                        onclick="editData('<?php echo $row['nim']; ?>')">
+                      <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
+                        href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
-                      </button>
+                      </a>
                       <!-- Tombol delete -->
-                      <button class="rounded-lg py-2 px-4 bg-red-500 text-gray-50"
+                      <a class="rounded-lg py-2 px-4 bg-red-500 text-gray-50 text-center"
                         onclick="deleteData('<?php echo $row['nim']; ?>')">
                         <i class="fa-solid fa-trash"></i>
-                      </button>
+                      </a>
+                    </td>
+                  </tr>
+                  <?php
+                }
+              } else {
+                // Jika tidak ada baris data yang dihasilkan
+                ?>
+                <tr>
+                  <td colspan="6">Tidak ada data yang tersedia</td>
+                </tr>
+                <?php
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mesin -->
+  <section class="w-full bg-white text-center ">
+    <h2 class="font-bold text-xl bg-blue-500 text-gray-50 py-4 uppercase">Tabel Jurusan Mesin</h2>
+    <div class="overflow-x-auto w- ">
+      <div class="inline-block min-w-full lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full text-left rounded text-sm font-light text-surface dark:text-black bg-slate-50">
+            <thead class="bg-white font-normal dark:bg-body-dark border-b border-gray-300 uppercase">
+              <tr>
+                <th scope="col" class="px-6 py-4">NIM</th>
+                <th scope="col" class="px-6 py-4">NAMA</th>
+                <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Jurusan</th>
+                <th scope="col" class="px-6 py-4">Tahun ajaran</th>
+                <th scope="col" class="px-6 py-4">Aksi</th>
+                <!-- Kolom untuk aksi -->
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              // Periksa apakah ada baris data yang dihasilkan dari query
+              if (mysqli_num_rows($tbl_mesin) > 0) {
+                // Loop melalui setiap baris data
+                while ($row = mysqli_fetch_assoc($tbl_mesin)) {
+                  ?>
+                  <tr class="cursor-pointer border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 font-medium">
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['nim']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['nama_mahasiswa']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['jurusan']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['tahun_ajaran']; ?>
+                    </td>
+                    <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
+                      <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
+                        href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </a>
+                      <!-- Tombol delete -->
+                      <a class="rounded-lg py-2 px-4 bg-red-500 text-gray-50 text-center"
+                        onclick="deleteData('<?php echo $row['nim']; ?>')">
+                        <i class="fa-solid fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <?php
+                }
+              } else {
+                // Jika tidak ada baris data yang dihasilkan
+                ?>
+                <tr>
+                  <td colspan="6">Tidak ada data yang tersedia</td>
+                </tr>
+                <?php
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arsitek -->
+  <section class="w-full bg-white text-center ">
+    <h2 class="font-bold text-xl bg-blue-500 text-gray-50 py-4 uppercase">Tabel Jurusan Arsitek</h2>
+    <div class="overflow-x-auto w- ">
+      <div class="inline-block min-w-full lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full text-left rounded text-sm font-light text-surface dark:text-black bg-slate-50">
+            <thead class="bg-white font-normal dark:bg-body-dark border-b border-gray-300 uppercase">
+              <tr>
+                <th scope="col" class="px-6 py-4">NIM</th>
+                <th scope="col" class="px-6 py-4">NAMA</th>
+                <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Jurusan</th>
+                <th scope="col" class="px-6 py-4">Tahun ajaran</th>
+                <th scope="col" class="px-6 py-4">Aksi</th>
+                <!-- Kolom untuk aksi -->
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              // Periksa apakah ada baris data yang dihasilkan dari query
+              if (mysqli_num_rows($tbl_Arsitek) > 0) {
+                // Loop melalui setiap baris data
+                while ($row = mysqli_fetch_assoc($tbl_Arsitek)) {
+                  ?>
+                  <tr class="cursor-pointer border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 font-medium">
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['nim']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['nama_mahasiswa']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['jurusan']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['tahun_ajaran']; ?>
+                    </td>
+                    <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
+                      <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
+                        href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </a>
+                      <!-- Tombol delete -->
+                      <a class="rounded-lg py-2 px-4 bg-red-500 text-gray-50 text-center"
+                        onclick="deleteData('<?php echo $row['nim']; ?>')">
+                        <i class="fa-solid fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <?php
+                }
+              } else {
+                // Jika tidak ada baris data yang dihasilkan
+                ?>
+                <tr>
+                  <td colspan="6">Tidak ada data yang tersedia</td>
+                </tr>
+                <?php
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industri -->
+  <section class="w-full bg-white text-center ">
+    <h2 class="font-bold text-xl bg-blue-500 text-gray-50 py-4 uppercase">Tabel Jurusan Industri</h2>
+    <div class="overflow-x-auto w- ">
+      <div class="inline-block min-w-full lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full text-left rounded text-sm font-light text-surface dark:text-black bg-slate-50">
+            <thead class="bg-white font-normal dark:bg-body-dark border-b border-gray-300 uppercase">
+              <tr>
+                <th scope="col" class="px-6 py-4">NIM</th>
+                <th scope="col" class="px-6 py-4">NAMA</th>
+                <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Jurusan</th>
+                <th scope="col" class="px-6 py-4">Tahun ajaran</th>
+                <th scope="col" class="px-6 py-4">Aksi</th>
+                <!-- Kolom untuk aksi -->
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              // Periksa apakah ada baris data yang dihasilkan dari query
+              if (mysqli_num_rows($tbl_Industri) > 0) {
+                // Loop melalui setiap baris data
+                while ($row = mysqli_fetch_assoc($tbl_Industri)) {
+                  ?>
+                  <tr class="cursor-pointer border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 font-medium">
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['nim']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['nama_mahasiswa']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['jurusan']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['tahun_ajaran']; ?>
+                    </td>
+                    <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
+                      <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
+                        href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </a>
+                      <!-- Tombol delete -->
+                      <a class="rounded-lg py-2 px-4 bg-red-500 text-gray-50 text-center"
+                        onclick="deleteData('<?php echo $row['nim']; ?>')">
+                        <i class="fa-solid fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <?php
+                }
+              } else {
+                // Jika tidak ada baris data yang dihasilkan
+                ?>
+                <tr>
+                  <td colspan="6">Tidak ada data yang tersedia</td>
+                </tr>
+                <?php
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Elektro -->
+  <section class="w-full bg-white text-center ">
+    <h2 class="font-bold text-xl bg-blue-500 text-gray-50 py-4 uppercase">Tabel Jurusan Elektro</h2>
+    <div class="overflow-x-auto w- ">
+      <div class="inline-block min-w-full lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full text-left rounded text-sm font-light text-surface dark:text-black bg-slate-50">
+            <thead class="bg-white font-normal dark:bg-body-dark border-b border-gray-300 uppercase">
+              <tr>
+                <th scope="col" class="px-6 py-4">NIM</th>
+                <th scope="col" class="px-6 py-4">NAMA</th>
+                <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Jurusan</th>
+                <th scope="col" class="px-6 py-4">Tahun ajaran</th>
+                <th scope="col" class="px-6 py-4">Aksi</th>
+                <!-- Kolom untuk aksi -->
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              // Periksa apakah ada baris data yang dihasilkan dari query
+              if (mysqli_num_rows($tbl_Elektro) > 0) {
+                // Loop melalui setiap baris data
+                while ($row = mysqli_fetch_assoc($tbl_Elektro)) {
+                  ?>
+                  <tr class="cursor-pointer border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 font-medium">
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['nim']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['nama_mahasiswa']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['jurusan']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['tahun_ajaran']; ?>
+                    </td>
+                    <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
+                      <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
+                        href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </a>
+                      <!-- Tombol delete -->
+                      <a class="rounded-lg py-2 px-4 bg-red-500 text-gray-50 text-center"
+                        onclick="deleteData('<?php echo $row['nim']; ?>')">
+                        <i class="fa-solid fa-trash"></i>
+                      </a>
                     </td>
                   </tr>
                   <?php
@@ -123,7 +421,7 @@ $tbl_mesin = mysqli_query($conn, $mesin);
   <script>
     function editData(id) {
       // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
-      window.location.href = 'edit_data.php?id=' + id;
+      window.location.href = 'editdatamhs.php?id=' + id;
     }
 
     function deleteData(id) {
