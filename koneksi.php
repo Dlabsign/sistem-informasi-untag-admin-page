@@ -48,6 +48,15 @@ $row_teknik = $result_teknik->fetch_assoc() ?? ["jumlah_mahasiswa" => 0];
 $teknik = $row_teknik["jumlah_mahasiswa"];
 // ========================================================
 
+// -------------- Hitung Jumlah Mahasiswa budaya
+$budaya_query = "SELECT COUNT(*) AS jumlah_mahasiswa FROM tbl_mhsiswa WHERE jurusan IN ('Inggris', 'Jepang', 'inggris','jepang')";
+$result_budaya = $conn->query($budaya_query);
+// Ambil baris pertama hasil atau set jumlahmhs menjadi 0 jika tidak ada hasil
+$row_budaya = $result_budaya->fetch_assoc() ?? ["jumlah_mahasiswa" => 0];
+// Ambil nilai jumlah mahasiswa
+$budaya = $row_budaya["jumlah_mahasiswa"];
+// ========================================================
+
 
 // Perintah SQL untuk menghitung jumlah mahasiswa Industri
 $jml_industri = "SELECT COUNT(*) AS jumlah_mahasiswa FROM tbl_mhsiswa WHERE jurusan = 'Industri'";

@@ -78,7 +78,6 @@ require ('koneksi.php')
     </div>
 
     <!-- ================= HUKUM ================= -->
-
     <div class="px-5 grid gap-y-2 w-full">
       <a class="hover:shadow-xl shadow-sm text-slate-700 hover:text-slate-50 w-full py-3 px-4 flex justify-start items-center h-[100%] rounded-xl gap-[20px] bg-slate-100 hover:bg-red-600 active:bg-red-500"
         href="./daftarfakultas/hukum.php">
@@ -92,6 +91,36 @@ require ('koneksi.php')
             <h1 class="text-base font-medium">Jumlah Mahasiswa</h1>
             <h1 class="text-base font-bold">
               <?php echo $hukum ?>
+            </h1>
+          </div>
+          <div class="w-full flex justify-between border-t border-gray-400">
+            <h1 class="text-base font-medium">Jumlah artikel</h1>
+            <h1 class="text-base font-bold">50</h1>
+          </div>
+          <div class="w-full flex justify-between border-t border-gray-400">
+            <h1 class="text-base font-medium">Rata Ipk</h1>
+            <h1 class="text-base font-bold">50</h1>
+          </div>
+        </div>
+
+
+      </a>
+    </div>
+    
+    <!-- ================= Budaya ================= -->
+    <div class="px-5 grid gap-y-2 w-full">
+      <a class="hover:shadow-xl shadow-sm text-slate-700 hover:text-slate-50 w-full py-3 px-4 flex justify-start items-center h-[100%] rounded-xl gap-[20px] bg-slate-100 hover:bg-slate-600 active:bg-red-500"
+        href="./daftarfakultas/budaya.php">
+        <div class="p-3 bg-slate-600 rounded">
+          <img src="assets/image/logo.png" alt="" width="50px" />
+        </div>
+
+        <div class="flex flex-col justify-start items-start w-full">
+          <h6 class="text-normal text-[24px] font-bold">Fakultas Budaya</h6>
+          <div class="w-full flex justify-between  border-t border-gray-400">
+            <h1 class="text-base font-medium">Jumlah Mahasiswa</h1>
+            <h1 class="text-base font-bold">
+              <?php echo $budaya ?>
             </h1>
           </div>
           <div class="w-full flex justify-between border-t border-gray-400">

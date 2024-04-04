@@ -70,6 +70,7 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                 <th scope="col" class="px-6 py-4">NIM</th>
                 <th scope="col" class="px-6 py-4">NAMA</th>
                 <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Email</th>
                 <th scope="col" class="px-6 py-4">Jurusan</th>
                 <th scope="col" class="px-6 py-4">Tahun ajaran</th>
                 <th scope="col" class="px-6 py-4">Aksi</th>
@@ -87,11 +88,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['nim']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['nama_mahasiswa']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
+                      <?php echo $row['email']; ?>
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['jurusan']; ?>
@@ -142,6 +146,7 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                 <th scope="col" class="px-6 py-4">NIM</th>
                 <th scope="col" class="px-6 py-4">NAMA</th>
                 <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Email</th>
                 <th scope="col" class="px-6 py-4">Jurusan</th>
                 <th scope="col" class="px-6 py-4">Tahun ajaran</th>
                 <th scope="col" class="px-6 py-4">Aksi</th>
@@ -159,11 +164,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['nim']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['nama_mahasiswa']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
+                      <?php echo $row['email']; ?>
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['jurusan']; ?>
@@ -214,6 +222,7 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                 <th scope="col" class="px-6 py-4">NIM</th>
                 <th scope="col" class="px-6 py-4">NAMA</th>
                 <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Email</th>
                 <th scope="col" class="px-6 py-4">Jurusan</th>
                 <th scope="col" class="px-6 py-4">Tahun ajaran</th>
                 <th scope="col" class="px-6 py-4">Aksi</th>
@@ -231,11 +240,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['nim']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['nama_mahasiswa']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
+                      <?php echo $row['email']; ?>
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['jurusan']; ?>
@@ -286,6 +298,7 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                 <th scope="col" class="px-6 py-4">NIM</th>
                 <th scope="col" class="px-6 py-4">NAMA</th>
                 <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Email</th>
                 <th scope="col" class="px-6 py-4">Jurusan</th>
                 <th scope="col" class="px-6 py-4">Tahun ajaran</th>
                 <th scope="col" class="px-6 py-4">Aksi</th>
@@ -303,11 +316,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['nim']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['nama_mahasiswa']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
+                      <?php echo $row['email']; ?>
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['jurusan']; ?>
@@ -358,6 +374,7 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                 <th scope="col" class="px-6 py-4">NIM</th>
                 <th scope="col" class="px-6 py-4">NAMA</th>
                 <th scope="col" class="px-6 py-4">Alamat</th>
+                <th scope="col" class="px-6 py-4">Email</th>
                 <th scope="col" class="px-6 py-4">Jurusan</th>
                 <th scope="col" class="px-6 py-4">Tahun ajaran</th>
                 <th scope="col" class="px-6 py-4">Aksi</th>
@@ -375,11 +392,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['nim']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['nama_mahasiswa']; ?>
                     </td>
-                    <td class="px-6 py-4 border-b border-gray-300">
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
                       <?php echo $row['alamat']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300 w-[12%]">
+                      <?php echo $row['email']; ?>
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['jurusan']; ?>
