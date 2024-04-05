@@ -48,7 +48,7 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
   <div class="w-full flex justify-between items-center my-3 px-4">
     <a href="../daftarfakultas.php" class="fa-solid fa-arrow-left text-[20px]"></a>
     <h6 class="text-normal text-[20px] font-medium">Fakultas Ilmu Budaya</h6>
-    <a class="fa-solid fa-rotate-right fa-spin text-[20px]" href="teknik.php"></a>
+    <a class="fa-solid fa-rotate-right fa-spin text-[20px]" href="budaya.php"></a>
   </div>
 
   <section class="w-full bg-white text-center ">
@@ -93,6 +93,14 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
                     </td>
                     <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
                       <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-blue-500 text-gray-50 text-center"
+                        href="profile.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-circle-info"></i>
+                      </a>
+                      <a class="rounded-lg py-2 px-4 bg-green-600 text-gray-50 text-center"
+                        href="isinilai.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-plus"></i>
+                      </a>
                       <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
                         href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -164,6 +172,14 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
                     </td>
                     <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
                       <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-blue-500 text-gray-50 text-center"
+                        href="profile.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-circle-info"></i>
+                      </a>
+                      <a class="rounded-lg py-2 px-4 bg-green-600 text-gray-50 text-center"
+                        href="isinilai.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-plus"></i>
+                      </a>
                       <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
                         href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -194,6 +210,16 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
   </section>
 
   <script>
+    function isinilai(id) {
+      // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
+      window.location.href = 'isinilai.php?id=' + id;
+    }
+
+    function profile(id) {
+      // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
+      window.location.href = 'profile.php?id=' + id;
+    }
+
     function editData(id) {
       // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
       window.location.href = 'editdatamhs.php?id=' + id;

@@ -105,6 +105,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     </td>
                     <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
                       <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-blue-500 text-gray-50 text-center"
+                        href="profile.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-circle-info"></i>
+                      </a>
+                      <a class="rounded-lg py-2 px-4 bg-green-600 text-gray-50 text-center"
+                        href="isinilai.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-plus"></i>
+                      </a>
                       <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
                         href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -181,6 +189,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     </td>
                     <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
                       <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-blue-500 text-gray-50 text-center"
+                        href="profile.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-circle-info"></i>
+                      </a>
+                      <a class="rounded-lg py-2 px-4 bg-green-600 text-gray-50 text-center"
+                        href="isinilai.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-plus"></i>
+                      </a>
                       <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
                         href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -257,6 +273,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     </td>
                     <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
                       <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-blue-500 text-gray-50 text-center"
+                        href="profile.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-circle-info"></i>
+                      </a>
+                      <a class="rounded-lg py-2 px-4 bg-green-600 text-gray-50 text-center"
+                        href="isinilai.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-plus"></i>
+                      </a>
                       <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
                         href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -333,6 +357,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     </td>
                     <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
                       <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-blue-500 text-gray-50 text-center"
+                        href="profile.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-circle-info"></i>
+                      </a>
+                      <a class="rounded-lg py-2 px-4 bg-green-600 text-gray-50 text-center"
+                        href="isinilai.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-plus"></i>
+                      </a>
                       <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
                         href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -409,6 +441,14 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
                     </td>
                     <td class="flex flex-col px-6 py-4 border-b border-gray-300 gap-y-2">
                       <!-- Tombol edit -->
+                      <a class="rounded-lg py-2 px-4 bg-blue-500 text-gray-50 text-center"
+                        href="profile.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-circle-info"></i>
+                      </a>
+                      <a class="rounded-lg py-2 px-4 bg-green-600 text-gray-50 text-center"
+                        href="isinilai.php?nim=<?php echo $row['nim'] ?>">
+                        <i class="fa-solid fa-plus"></i>
+                      </a>
                       <a class="rounded-lg py-2 px-4 bg-yellow-400 text-gray-50 text-center"
                         href="editdatamhs.php?nim=<?php echo $row['nim'] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -439,6 +479,16 @@ $tbl_Elektro = mysqli_query($conn, $Elektro);
   </section>
 
   <script>
+    function isinilai(id) {
+      // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
+      window.location.href = 'isinilai.php?id=' + id;
+    }
+
+    function profile(id) {
+      // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
+      window.location.href = 'profile.php?id=' + id;
+    }
+    
     function editData(id) {
       // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
       window.location.href = 'editdatamhs.php?id=' + id;

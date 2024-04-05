@@ -45,7 +45,7 @@ $tbl_hukum = mysqli_query($conn, $hukum);
   <div class="w-full flex justify-between items-center my-3 px-4">
     <a href="../daftarfakultas.php" class="fa-solid fa-arrow-left text-[20px]"></a>
     <h6 class="text-normal text-[20px] font-medium">Fakultas Hukum</h6>
-    <a class="fa-solid fa-rotate-right fa-spin text-[20px]" href="teknik.php"></a>
+    <a class="fa-solid fa-rotate-right fa-spin text-[20px]" href="hukum.php"></a>
   </div>
 
   <section class="w-full bg-white text-center ">

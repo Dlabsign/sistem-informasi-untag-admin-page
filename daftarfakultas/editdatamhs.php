@@ -22,9 +22,7 @@ if (isset($_POST['simpan'])) {
 
     mysqli_query($conn, "UPDATE tbl_mhsiswa SET nama_mahasiswa='$nama_mahasiswa', tgl_lahir='$tgl_lahir', status_mhs='$status', jurusan='$jurusan', jns_kelamin ='$kelamin',lulusan_sekolah='$asal_sekolah', pekerjaan='$pekerjaan', alamat='$alamat', kota='$kota', provinsi='$provinsi',telp='$telepon',email='$email' WHERE nim='$nim'") or die(mysqli_error($conn));
 
-
     header("Location: ../daftarfakultas.php");
-
 
 }
 
