@@ -132,8 +132,6 @@ require ('koneksi.php')
             <h1 class="text-base font-bold">50</h1>
           </div>
         </div>
-
-
       </a>
     </div>
   </div>

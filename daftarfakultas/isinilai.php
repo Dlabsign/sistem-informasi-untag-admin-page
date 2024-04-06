@@ -24,14 +24,15 @@ if (isset($_POST['simpan'])) {
     echo "Terjadi kesalahan saat menyimpan nilai: " . mysqli_error($conn);
   }
 
-  // Tutup koneksi ke database
-  header("Location: ../daftarfakultas.php");
+  header("Refresh: 0.5");
 
+  // Tutup koneksi ke database
   mysqli_close($conn);
 }
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +62,8 @@ if (isset($_POST['simpan'])) {
 
   <section class="w-full bg-white text-center pb-2">
     <h2 class="font-bold text-xl bg-gray-50 text-gray-500 py-4 uppercase">
-      ISI Nilai Mahasiswa <?php echo $nimmhs ?>
+      ISI Nilai Mahasiswa
+      <?php echo $nimmhs ?>
     </h2>
     <form method="POST">
       <div class="overflow-x-auto">
@@ -70,7 +72,6 @@ if (isset($_POST['simpan'])) {
             <table class="min-w-full text-left rounded text-sm font-light text-surface dark:text-black bg-slate-50">
               <thead class="bg-white font-normal dark:bg-body-dark border-b border-gray-300 uppercase">
                 <tr>
-                  <th scope="col" class="px-6 py-4">KODE MATA KULIAH</th>
                   <th scope="col" class="px-6 py-4">MATA KULIAH</th>
                   <th scope="col" class="px-6 py-4">Nilai</th>
                   <th scope="col" class="px-6 py-4">Pengajar Mata Kuliah</th>
@@ -81,14 +82,36 @@ if (isset($_POST['simpan'])) {
                 <form method="POST">
                   <tr
                     class="cursor-pointer border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 font-medium">
-                    <td class="px-4 py-4 border-b border-gray-300">14620034</td>
                     <td class="px-4 py-4 border-b border-gray-300">
-                      DASAR-DASAR PEMROGRAMAN
+                      <select class="form-select mb-3" aria-label="Default select example" name="mata_kuliah">
+                        <option class="fw-bold" value="Dasar-Dasar Pemrograman">
+                          Dasar-Dasar Pemrograman
+                        </option>
+                        <option class="fw-bold" value="MANAJEMEN BASIS DATA">
+                          MANAJEMEN BASIS DATA
+                        </option>
+                        <option class="fw-bold" value="SISTEM JARINGAN KOMPUTER">
+                          SISTEM JARINGAN KOMPUTER
+                        </option>
+                        <option class="fw-bold" value="SISTEM APLIKASI MULTIMEDIA">
+                          SISTEM APLIKASI MULTIMEDIA
+                        </option>
+                        <option class="fw-bold" value="ETIKA TEKNOLOGI INFORMASI">
+                          ETIKA TEKNOLOGI INFORMASI
+                        </option>
+                        <option class="fw-bold" value="STRUKTUR DATA DAN ALGORITMA">
+                          STRUKTUR DATA DAN ALGORITMA
+                        </option>
+                        <option class="fw-bold" value="ARSITEKTUR DAN ORGANISASI KOMPUTER">
+                          ARSITEKTUR DAN ORGANISASI KOMPUTER
+                        </option>
+                        <option class="fw-bold" value="PEMROGRAMAN BERORIENTASI OBJEK FUNGSIONAL">
+                          PEMROGRAMAN BERORIENTASI OBJEK FUNGSIONAL
+                        </option>
+                      </select>
                     </td>
                     <td class="px-4 py-4 border-b border-gray-300">
                       <input type="number" name="nilai" value="" class="w-[100%]" />
-                      <input type="text" name="mata_kuliah" value="Dasar-Dasar Pemrograman" hidden />
-                      <input type="text" name="kode_mata_kuliah" value="14620034" hidden />
                     </td>
                     <td class="px-4 py-4 border-b border-gray-300">
                       <select class="form-select mb-3" aria-label="Default select example" name="pengajar">
@@ -119,13 +142,13 @@ if (isset($_POST['simpan'])) {
                 </form>
               </tbody>
             </table>
-            <div class="mt-2 font-bold w-full flex justify-end ">
-              <button onclick="goBack()" type="submit" name="simpan" class="rounded-lg py-2 px-4 bg-green-500 text-gray-50 text-center">
+            <div class="mt-2 font-bold w-full flex justify-end gap-x-2">
+              <button type="submit" name="simpan" class="rounded-lg py-2 px-4 bg-green-500 text-gray-50 text-center">
                 Simpan
               </button>
               <!-- Tombol reset -->
-              <button type="reset" class="rounded-lg py-2 px-4 bg-red-500 text-gray-50 text-center">
-                Reset
+              <button onclick="Kembali()" type="reset" class="rounded-lg py-2 px-4 bg-red-500 text-gray-50 text-center">
+                Kembali
               </button>
             </div>
           </div>
@@ -135,33 +158,23 @@ if (isset($_POST['simpan'])) {
   </section>
 
   <script>
-
-
     function goBack() {
       window.history.back();
     }
+    function Kembali() {
+      window.location.href = "../daftarfakultas.php";
+    }
 
-
-    function deleteData(id) {
-      // Konfirmasi pengguna sebelum menghapus data
-      if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
-        // Kirim ID data yang ingin dihapus ke halaman ini untuk pemrosesan
-        var formData = new FormData();
-        formData.append("id_to_delete", id);
-
-        // Kirim data menggunakan AJAX untuk menghindari reload halaman
-        fetch("teknik.php", {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.text())
-          .then((result) => {
-            alert(result); // Tampilkan pesan hasil penghapusan
-            location.reload(); // Muat ulang halaman setelah menghapus data
-          })
-          .catch((error) => console.error("Error:", error));
+    function changeCourseCode(select) {
+      var courseCodeElement = document.getElementById("courseCode");
+      if (select.value === "KECERDASAN ARTIFISIAL") {
+        courseCodeElement.innerText = "146200043";
+      } else {
+        courseCodeElement.innerText = "14620034";
       }
     }
+
+  </script>
   </script>
 </body>
 
