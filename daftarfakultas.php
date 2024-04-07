@@ -39,7 +39,7 @@ require ('koneksi.php')
       <h6 class="text-sm text-center font-medium">Daftar Mahasiswa</h6>
     </a>
     <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
-      href="artikelpage.php">
+    href="./artikel/artikelpage.php">
       <i class="fa-solid fa-book"></i>
       <h6 class="text-sm font-medium">Artikel</h6>
     </a>

@@ -21,8 +21,7 @@ if (isset($_POST['simpan'])) {
         $query = "INSERT INTO tbl_artikel (isi_berita, penulis, judul_berita, status_artikel, tanggal_publish, gambar, jam) 
                   VALUES ('$isi_berita', '$penulis','$judul_berita','$status_artikel','$tanggal_publish', '$gambar','$waktu')";
         if (mysqli_query($conn, $query)) {
-            $berhasil = "Data Berhasil Disimpan";
-            echo $gambar;
+            $berhasil = "Artikel Berhasil Disimpan";
         } else {
             echo "Terjadi kesalahan saat menyimpan data: " . mysqli_error($conn);
         }
@@ -53,8 +52,7 @@ if (isset($_POST['simpan'])) {
 <body class="bg-gray-300 ">
 
     <div class="dash px-[20px] py-10 bg-slate-400 ">
-        <h2 class="font-bold text-[45px] rounded-md mb-6 text-center py-5   bg-slate-600 text-slate-100">Tambah
-            Mahasiswa</h2>
+        <h2 class="font-bold text-[45px] rounded-md mb-6 text-center py-5   bg-red-600 text-slate-100">Buat Artikel Baru</h2>
 
         <div class="card py-[20px] px-[42px]   bg-gray-200">
             <?php if (!empty($error)) { ?>
@@ -95,14 +93,14 @@ if (isset($_POST['simpan'])) {
                 <!-- Tanggal Publish -->
                 <div class="mb-4 flex justify-between items-center  font-bold text-normal">
                     <h6>Jadwal Publish</h6>
-                    <input type="date" class="form-control w-[70%] lg:w-[80%] font-medium" name="tanggal_publish">
+                    <input type="date" class="form-control w-[66%] lg:w-[80%] font-medium" name="tanggal_publish">
                 </div>
 
                 <!-- Button submit -->
                 <div class="w-full flex justify-end">
                     <button type="submit" name="simpan"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Tambah</button>
-                    <a href="menu.php" type="kembali"
+                    <a href="../menu.php" type="kembali"
                         class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Kembali</a>
                 </div>
             </form>

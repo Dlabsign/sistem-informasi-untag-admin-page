@@ -34,7 +34,7 @@
       <h6 class="text-sm text-center font-medium">Daftar Mahasiswa</h6>
     </a>
     <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
-      href="artikelpage.php">
+      href="./artikel/artikelpage.php">
       <i class="fa-solid fa-book"></i>
       <h6 class="text-sm font-medium">Artikel</h6>
     </a>
@@ -53,7 +53,7 @@
         <i class="fa-regular font-bold fa-user text-xl"></i>
       </a>
       <a class="hover:shadow-lg shadow-sm text-lg font-bold text-slate-700 hover:text-gray-50 w-full px-[20px] py-[20px] flex justify-between items-center h-[100%] rounded  gap-[12px] bg-slate-100 hover:bg-blue-500 active:bg-slate-500 "
-        href="tambah.php">
+        href="./artikel/add_artikel.php">
         Submit Artikel
         <i class="fa-solid font-bold fa-book-open text-xl"></i>
       </a>
