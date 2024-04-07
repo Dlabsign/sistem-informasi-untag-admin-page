@@ -30,7 +30,8 @@ $conn->close();
 </head>
 
 <body class="bg-gray-300 mb-24">
-    <nav class="fixed w-[50%] flex flex-row justify-center items-center gap-2  bottom-0 w-full px-2 py-2 bg-gray-50">
+    <nav
+        class="fixed w-[50%] shadow-lg flex flex-row justify-center items-center gap-2 bottom-0 w-full px-2 py-2 bg-gray-50">
         <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-slate-400 gap-y-[2px]"
             href="dashboard.php">
             <i class="fa-solid fa-house"></i>
@@ -38,7 +39,7 @@ $conn->close();
         </a>
         <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
             href="menu.php">
-            <i class="fa-solid fa-bars fa-beat-fade"></i>
+            <i class="fa-solid fa-bars"></i>
             <h6 class="text-sm font-medium">Menu</h6>
         </a>
         <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
@@ -47,11 +48,10 @@ $conn->close();
             <h6 class="text-sm text-center font-medium">Daftar Mahasiswa</h6>
         </a>
         <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
-            href="dashboard.php">
+            href="artikelpage.php">
             <i class="fa-solid fa-book"></i>
             <h6 class="text-sm font-medium">Artikel</h6>
         </a>
-
     </nav>
 
     <div class=" flex flex-col justify-center items-center px-3 ">
