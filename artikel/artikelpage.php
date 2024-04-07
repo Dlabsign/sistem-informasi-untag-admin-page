@@ -3,6 +3,9 @@ require "../koneksi.php";
 
 $artikel = "SELECT * FROM tbl_artikel";
 $tampil_artikel = mysqli_query($conn, $artikel);
+date_default_timezone_set('Asia/Jakarta');
+$waktu = date("H:i");
+$tanggal = date ("Y-m-d")
 
 ?>
 
@@ -59,7 +62,7 @@ $tampil_artikel = mysqli_query($conn, $artikel);
           <span class="font-bold text-red-600">Terkini</span>
         </h2>
         <span class="text-sm text-slate-500 font-medium uppercase">
-          waktu terkini <span class="font-bold"> 21:51</span> wib</span>
+        <?php echo $tanggal?> || <span class="font-bold"> <?php echo $waktu?></span> wib</span>
       </div>
 
       <!-- Konten Menu -->
@@ -68,7 +71,7 @@ $tampil_artikel = mysqli_query($conn, $artikel);
         if (mysqli_num_rows($tampil_artikel) > 0) {
           while ($row = mysqli_fetch_assoc($tampil_artikel)) {
             ?>
-            <a href="detail_artikel.php?id=<?php echo $row['id'] ?>"
+            <a href="detail_artikel.php?id=<?php echo $row['id_artikel'] ?>"
               class="rounded-lg w-full hover:shadow-xl hover:bg-slate-200 hover:px-3 py-2 flex items-center justify-start gap-x-5">
               <img src="file/<?php echo $row['gambar'] ?>" class="w-[40%] h-[50%] rounded-lg" style="object-fit: cover" />
               <div class="flex flex-col">
@@ -76,13 +79,12 @@ $tampil_artikel = mysqli_query($conn, $artikel);
                   <?php echo $row['judul_berita'] ?>
                 </h2>
                 <h2 class="py-2 text-sm font-bold flex items-end gap-x-4 uppercase text-red-600">
-                  <?php echo $row['penulis'] ?> <!-- Tambahkan penulis artikel -->
+                  <?php echo $row['penulis'] ?>
                   <span class="font-normal text-sm text-gray-500">
-                    <?php echo date("j F", strtotime($row['tanggal_publish'])) ?>
-                    <?php echo $row['penulis'] ?>
+                    <?php echo date("j F Y", strtotime($row['tanggal_publish'])) ?>
                   </span> <!-- Tambahkan tanggal -->
                   <span class="font-normal text-sm text-gray-500">
-                    <?php echo date("H:i", strtotime($row['waktu_publish'])) ?> WIB
+                    <?php echo $row['jam'] ?> WIB
                   </span> <!-- Tambahkan waktu -->
                 </h2>
               </div>
@@ -97,6 +99,12 @@ $tampil_artikel = mysqli_query($conn, $artikel);
       </div>
     </div>
   </div>
+  <script>
+    function detail_artikel(id) {
+      // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
+      window.location.href = 'detail_artikel.php?id=' + id;
+    }
+  </script>
 </body>
 
 </html>
