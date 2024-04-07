@@ -5,17 +5,16 @@ $nimmhs = $_GET['nim'];
 
 if (isset($_POST['simpan'])) {
   // Ambil nilai dari formulir
-  $kode_mata_kuliah = $_POST['kode_mata_kuliah'];
   $mata_kuliah = $_POST['mata_kuliah'];
   $nilai = $_POST['nilai'];
-  $pengajar = $_POST['pengajar'];
+  $pengajar = $_POST['pengajar']; // Pastikan Anda telah mendefinisikan variabel $pengajar
 
   // Ambil NIM dari input tersembunyi
   $nim = $_POST['nim'];
 
   // Query untuk menyimpan nilai ke dalam tabel
-  $query = "INSERT INTO tbl_nilai_mahasiswa (nim, mata_kuliah, nilai_mahasiswa, dosen_mata_kuliah, kodematkul) 
-            VALUES ('$nimmhs', '$mata_kuliah','$nilai','$pengajar', '$kode_mata_kuliah')";
+  $query = "INSERT INTO tbl_nilai_mahasiswa (nim, mata_kuliah, nilai_mahasiswa, dosen_mata_kuliah) 
+            VALUES ('$nimmhs', '$mata_kuliah','$nilai','$pengajar')"; // Menggunakan variabel $nim yang telah diambil sebelumnya
 
   // Eksekusi query
   if (mysqli_query($conn, $query)) {
@@ -24,9 +23,9 @@ if (isset($_POST['simpan'])) {
     echo "Terjadi kesalahan saat menyimpan nilai: " . mysqli_error($conn);
   }
 
-  header("Refresh: 0.5");
-
   // Tutup koneksi ke database
+  header("Location: ../daftarfakultas.php");
+
   mysqli_close($conn);
 }
 
