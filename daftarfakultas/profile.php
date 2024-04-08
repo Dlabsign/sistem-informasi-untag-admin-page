@@ -7,7 +7,6 @@ $data = mysqli_fetch_array($ambildata);
 
 $datanilai = mysqli_query($conn, "SELECT * FROM tbl_nilai_mahasiswa WHERE nim = '$nim'");
 $nilai = array();
-
 while ($roww = mysqli_fetch_assoc($datanilai)) {
   $nilai[] = $roww;
 }
@@ -76,6 +75,34 @@ if (isset($_POST['simpan'])) {
       <div class="shadow-lg rounded-lg bg-slate-50 flex flex-col items-center justify-center  py-2.5 ">
         <div class="font-bold text-xl">Nilai Mata Kuliah</div>
         <canvas id="myChart" style="width: 100%; max-width: 600px"></canvas>
+        <div class="px-5 w-full my-4">
+          <table class="w-full   px-5">
+            <thead>
+              <tr>
+                <th class="px-6 py-4">Mata Kuliah</th>
+                <th class="px-6 py-4">Nilai</th>
+                <th class="px-6 py-4">Pengajar</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm font-medium">
+              <?php foreach ($nilai as $row): ?>
+                <tr>
+                  <td class="px-6 py-4 border-b border-gray-300">
+                    <?php echo $row['mata_kuliah']; ?>
+                  </td>
+                  <td class="px-6 py-4 border-b border-gray-300">
+                    <?php echo $row['nilai_mahasiswa']; ?>
+                  </td>
+                  <td class="px-6 py-4 border-b border-gray-300">
+                    <?php echo $row['dosen_mata_kuliah']; ?>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+
+          </table>
+        </div>
+
       </div>
     </div>
 

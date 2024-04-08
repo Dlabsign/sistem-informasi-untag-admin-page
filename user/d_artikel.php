@@ -50,9 +50,9 @@ $tampil_artikel = mysqli_fetch_array($artikel);
     <div class="h-full px-[20px] lg:px-48 shadow-lg bg-slate-400">
         <div class="h-[100vh] pb-5 h-full px-[42px] bg-slate-100">
             <div class="w-full flex justify-between items-center py-5 ">
-                <a href="artikel.php" class="fa-solid fa-arrow-left text-[20px]"></a>
+                <a href="artikel.php?nim=<?php echo $data['nim'] ?>" class="fa-solid fa-arrow-left text-[20px]"></a>
                 <h6 class="text-normal text-[20px] font-medium">Kabar Hari Ini</h6>
-                <a class="fa-solid fa-rotate-right fa-spin text-[20px]" href="d_artikel.php"></a>
+                <a class="fa-solid fa-rotate-right fa-spin text-[20px]"></a>
             </div>
             <!-- Header -->
             <div class="w-full flex flex-col justify-between items-start border-l-4 border-red-500 pl-3.5">

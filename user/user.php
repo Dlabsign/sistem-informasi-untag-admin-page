@@ -5,12 +5,12 @@ $nim = $_GET['nim'];
 $ambildata = mysqli_query($conn, "SELECT * FROM tbl_mhsiswa WHERE nim = '$nim'");
 $data = mysqli_fetch_array($ambildata);
 
-$datanilai = mysqli_query($conn, "SELECT * FROM tbl_nilai_mahasiswa WHERE nim = '$nim'");
+$chart_nilai = mysqli_query($conn, "SELECT * FROM tbl_nilai_mahasiswa WHERE nim = '$nim'");
 $nilai = array();
-
-while ($roww = mysqli_fetch_assoc($datanilai)) {
+while ($roww = mysqli_fetch_assoc($chart_nilai)) {
   $nilai[] = $roww;
 }
+
 
 ?>
 
@@ -37,17 +37,17 @@ while ($roww = mysqli_fetch_assoc($datanilai)) {
   <nav
     class="fixed w-[50%] shadow-lg flex flex-row justify-center items-center gap-2 bottom-0 w-full px-2 py-2 bg-gray-50">
     <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-slate-400 gap-y-[2px]"
-      href="user.php?nim=<?php echo $data['nim']?>">
+      href="user.php?nim=<?php echo $data['nim'] ?>">
       <i class="fa-solid fa-user"></i>
       <h6 class="text-sm font-medium">Profile</h6>
     </a>
     <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
-      href="menu_user.php?nim=<?php echo $data['nim']?>">
+      href="menu_user.php?nim=<?php echo $data['nim'] ?>">
       <i class="fa-solid fa-bars"></i>
       <h6 class="text-sm font-medium">Menu</h6>
     </a>
     <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
-      href="artikel.php?nim=<?php echo $data['nim']?>">
+      href="artikel.php?nim=<?php echo $data['nim'] ?>">
       <i class="fa-solid fa-book"></i>
       <h6 class="text-sm font-medium">Artikel</h6>
     </a>
@@ -71,6 +71,34 @@ while ($roww = mysqli_fetch_assoc($datanilai)) {
       <div class="shadow-lg rounded-lg bg-slate-50 flex flex-col items-center justify-center  py-2.5 ">
         <div class="font-bold text-xl">Nilai Mata Kuliah</div>
         <canvas id="myChart" style="width: 100%; max-width: 600px"></canvas>
+        <div class="px-5 w-full my-4">
+          <table class="w-full   px-5">
+            <thead>
+              <tr>
+                <th class="px-6 py-4" >Mata Kuliah</th>
+                <th class="px-6 py-4" >Nilai</th>
+                <th class="px-6 py-4" >Pengajar</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm font-medium">
+              <?php foreach ($nilai as $row): ?>
+                <tr>
+                  <td class="px-6 py-4 border-b border-gray-300" >
+                    <?php echo $row['mata_kuliah']; ?>
+                  </td>
+                  <td class="px-6 py-4 border-b border-gray-300" >
+                    <?php echo $row['nilai_mahasiswa']; ?>
+                  </td>
+                  <td class="px-6 py-4 border-b border-gray-300" >
+                    <?php echo $row['dosen_mata_kuliah']; ?>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+
+          </table>
+        </div>
+
       </div>
     </div>
 
