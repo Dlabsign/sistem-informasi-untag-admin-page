@@ -71,7 +71,7 @@ $tanggal = date ("Y-m-d")
         if (mysqli_num_rows($tampil_artikel) > 0) {
           while ($row = mysqli_fetch_assoc($tampil_artikel)) {
             ?>
-            <a href="detail_artikel.php?id=<?php echo $row['id_artikel'] ?>"
+            <a href="detail_artikel.php?id_artikel=<?php echo $row['id_artikel'] ?>"
               class="rounded-lg w-full hover:shadow-xl hover:bg-slate-200 hover:px-3 py-2 flex items-center justify-start gap-x-5">
               <img src="file/<?php echo $row['gambar'] ?>" class="w-[40%] h-[50%] rounded-lg" style="object-fit: cover" />
               <div class="flex flex-col">
@@ -102,7 +102,7 @@ $tanggal = date ("Y-m-d")
   <script>
     function detail_artikel(id) {
       // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
-      window.location.href = 'detail_artikel.php?id=' + id;
+      window.location.href = 'detail_artikel.php?id_artikel=' + id;
     }
   </script>
 </body>

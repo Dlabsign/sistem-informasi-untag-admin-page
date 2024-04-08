@@ -54,14 +54,16 @@
       </a>
       <a class="hover:shadow-lg shadow-sm text-lg font-bold text-slate-700 hover:text-gray-50 w-full px-[20px] py-[20px] flex justify-between items-center h-[100%] rounded  gap-[12px] bg-slate-100 hover:bg-blue-500 active:bg-slate-500 "
         href="./artikel/add_artikel.php">
-        Submit Artikel
-        <i class="fa-solid font-bold fa-book-open text-xl"></i>
-      </a>
-      <a class="hover:shadow-lg shadow-sm text-lg font-bold text-slate-700 hover:text-gray-50 w-full px-[20px] py-[20px] flex justify-between items-center h-[100%] rounded  gap-[12px] bg-slate-100 hover:bg-blue-500 active:bg-slate-500 "
-        href="tambah.php">
         Tambah Artikel
         <i class="fa-regular font-bold fa-plus text-xl"></i>
+
       </a>
+      <a class="hover:shadow-lg shadow-sm text-lg font-bold text-slate-700 hover:text-gray-50 w-full px-[20px] py-[20px] flex justify-between items-center h-[100%] rounded  gap-[12px] bg-slate-100 hover:bg-blue-500 active:bg-slate-500 "
+        href="./artikel/tabel_artikel.php">
+        Tabel Artikel
+        <i class="fa-solid font-bold fa-book-open text-xl"></i>
+      </a>
+
     </div>
   </div>
 </body>
