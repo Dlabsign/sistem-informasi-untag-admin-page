@@ -65,17 +65,26 @@ $tampil_artikel = mysqli_fetch_array($artikel);
       </div>
 
       <!-- Komentar -->
-      <form class="mb-4   font-bold text-normal flex flex-col gap-y-2">
-        <h6 class="mb-1 w-full flex justify-between items-end">Beri Komentar <span
-            class="text-sm font-normal text-slate-500">Isi komentar Dengan Sopan</span></h6>
-        <textarea rows="5" type="text" class="form-control w-[100%] bg-slate-300 " name="penulis"></textarea>
-        <button type="submit" name="simpan"
-          class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg w-full text-sm px-5 py-2.5 me-2 mb-2">Kirim</button>
-        <div class="tampil mt-3.5 w-full border-t py-4 border-gray-600">
-          <h6 class="mb-1 w-full">USER <span class="font-normal text-sm text-gray-400">- 17 Februari</span></h6>
-          <span class="text-sm font-normal text-slate-500"></span>
+      <?php
+      // komentar
+      $komentar_query = mysqli_query($conn, "SELECT * FROM tbl_komentar WHERE id_berita_kampus = '$idartikel'");
+      while ($tampil_komentar = mysqli_fetch_array($komentar_query)) {
+        ?>
+        <div class="tampil mt-3.5 w-full border-t py-2 px-2 border-gray-600 ">
+          <h6 class="mb-1 w-full text-red-600 font-medium">
+            <?php echo $tampil_komentar['nama']; ?> <span class="font-normal text-sm text-slate-500">-
+              <?php echo $tampil_komentar['tanggal_komentar'] ?>
+            </span>
+
+          </h6>
+          <span class="text-sm font-normal text-slate-500 py-2 ">
+            <?php echo $tampil_komentar['isi_komentar']; ?>
+          </span>
+          <a href="" class="text-sm font-normal text-slate-500 py-2">edit</a>
         </div>
-      </form>
+        <?php
+      }
+      ?>
     </div>
     <script>
       function detail_artikel(id) {
