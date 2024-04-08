@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require ('koneksi.php');
+require ('../koneksi.php');
 $error = "";
 
 function generateNIM($conn, $jurusan)
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Eksekusi query
         if (mysqli_query($conn, $query)) {
             $_SESSION['nama_mahasiswa'] = $nama_mahasiswa;
-            // header("Location: dashboard.php");
+            header("Location: ../login.php");
             echo "<script>alert('Data mahasiswa berhasil disimpan');</script>";
 
             exit(); // Penting untuk mencegah eksekusi lebih lanjut setelah pindah halaman
@@ -238,7 +238,7 @@ mysqli_close($conn);
                 </div>
                 <div class="w-full">
                     <button type="submit" onclick="goBack()"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Tambah</button>
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Simpan</button>
                     <a href="menu.php" type="kembali" onclick="goBack()" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium
                         rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700
                         focus:outline-none dark:focus:ring-red-800">Kembali</a>

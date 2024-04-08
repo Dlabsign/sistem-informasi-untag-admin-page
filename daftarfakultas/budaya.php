@@ -52,7 +52,7 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
   </div>
 
   <section class="w-full bg-white text-center ">
-    <h2 class="font-bold text-xl bg-slate-500 text-gray-50 py-4 uppercase">Tabel Jurusan Ilmu Budaya</h2>
+    <h2 class="font-bold text-xl bg-slate-500 text-gray-50 py-4 uppercase">Jurusan Bahasa Sastra Inggris</h2>
     <div class="overflow-x-auto w- ">
       <div class="inline-block min-w-full lg:px-8">
         <div class="overflow-hidden">
@@ -131,7 +131,7 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
   </section>
 
   <section class="w-full bg-white text-center ">
-    <h2 class="font-bold text-xl bg-slate-500 text-gray-50 py-4 uppercase">Tabel Jurusan Ilmu Budaya</h2>
+    <h2 class="font-bold text-xl bg-slate-500 text-gray-50 py-4 uppercase"> Jurusan Bahasa Jepang</h2>
     <div class="overflow-x-auto w- ">
       <div class="inline-block min-w-full lg:px-8">
         <div class="overflow-hidden">

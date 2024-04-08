@@ -1,5 +1,5 @@
 <?php
-require '../koneksi.php';
+require ('../koneksi.php');
 
 $nim = $_GET['nim'];
 $ambildata = mysqli_query($conn, "SELECT * FROM tbl_mhsiswa WHERE nim = '$nim'");
@@ -12,24 +12,7 @@ while ($roww = mysqli_fetch_assoc($datanilai)) {
   $nilai[] = $roww;
 }
 
-if (isset($_POST['simpan'])) {
-  $nama_mahasiswa = $_POST['nama'];
-  $kelamin = $_POST['kelamin'];
-  $status = $_POST['status'];
-  $jurusan = $_POST['jurusan'];
-  $tgl_lahir = $_POST['tgl_lahir'];
-  $asal_sekolah = $_POST['asal_sekolah'];
-  $pekerjaan = $_POST['pekerjaan'];
-  $alamat = $_POST['alamat'];
-  $kota = $_POST['kota'];
-  $provinsi = $_POST['provinsi'];
-  $telepon = $_POST['telepon'];
-  $email = $_POST['email'];
-
-  header("Location: ../daftarfakultas.php");
-}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,25 +20,38 @@ if (isset($_POST['simpan'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daftar Mahasiswa Ilmu Budaya</title>
+  <title>MENU</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
   <link rel="stylesheet" href="style3.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- FLowbite -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </head>
 
 <body class="bg-gray-300 mb-24">
-  <div class="w-full flex justify-between items-center my-3 px-4">
-    <a class="fa-solid fa-arrow-left text-[20px]" onclick="goBack()"></a>
-    <h6 class="text-normal text-[20px] font-medium">Profil</h6>
-    <a class="fa-solid fa-rotate-right fa-spin text-[20px]" href="profil.php"></a>
-  </div>
+  <nav
+    class="fixed w-[50%] shadow-lg flex flex-row justify-center items-center gap-2 bottom-0 w-full px-2 py-2 bg-gray-50">
+    <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-slate-400 gap-y-[2px]"
+      href="user.php?nim=<?php echo $data['nim']?>">
+      <i class="fa-solid fa-user"></i>
+      <h6 class="text-sm font-medium">Profile</h6>
+    </a>
+    <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
+      href="menu_user.php?nim=<?php echo $data['nim']?>">
+      <i class="fa-solid fa-bars"></i>
+      <h6 class="text-sm font-medium">Menu</h6>
+    </a>
+    <a class="w-full px-[20px] py-2 flex flex-col justify-center items-center h-[100%] rounded hover:bg-gray-400 gap-y-[2px]"
+      href="artikel.php?nim=<?php echo $data['nim']?>">
+      <i class="fa-solid fa-book"></i>
+      <h6 class="text-sm font-medium">Artikel</h6>
+    </a>
+  </nav>
 
   <section class="px-3 w-full  py-3 flex flex-col lg:flex-row justify-between gap-x-3 lg:gap-x-3">
     <div class="w-[100%] lg:w-[50%] flex flex-col gap-y-3 mb-3 lg:mb-0">
@@ -72,7 +68,6 @@ if (isset($_POST['simpan'])) {
         </div>
       </div>
       <!-- Grafik -->
-
       <div class="shadow-lg rounded-lg bg-slate-50 flex flex-col items-center justify-center  py-2.5 ">
         <div class="font-bold text-xl">Nilai Mata Kuliah</div>
         <canvas id="myChart" style="width: 100%; max-width: 600px"></canvas>
@@ -158,6 +153,12 @@ if (isset($_POST['simpan'])) {
   </section>
 
   <script>
+
+    function artikel(id) {
+      // Redirect ke halaman edit dengan menyertakan ID data yang ingin diedit
+      window.location.href = 'isinilai.php?id=' + id;
+    }
+
     function goBack() {
       window.history.back();
     }
@@ -186,6 +187,7 @@ if (isset($_POST['simpan'])) {
     });
 
   </script>
+
 </body>
 
 </html>

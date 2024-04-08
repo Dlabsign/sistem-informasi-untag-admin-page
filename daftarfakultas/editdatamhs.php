@@ -19,8 +19,9 @@ if (isset($_POST['simpan'])) {
     $provinsi = $_POST['provinsi'];
     $telepon = $_POST['telepon'];
     $email = $_POST['email'];
+    $tahun_ajaran = $_POST['tahun_ajaran'];
 
-    mysqli_query($conn, "UPDATE tbl_mhsiswa SET nama_mahasiswa='$nama_mahasiswa', tgl_lahir='$tgl_lahir', status_mhs='$status', jurusan='$jurusan', jns_kelamin ='$kelamin',lulusan_sekolah='$asal_sekolah', pekerjaan='$pekerjaan', alamat='$alamat', kota='$kota', provinsi='$provinsi',telp='$telepon',email='$email' WHERE nim='$nim'") or die(mysqli_error($conn));
+    mysqli_query($conn, "UPDATE tbl_mhsiswa SET nama_mahasiswa='$nama_mahasiswa', tgl_lahir='$tgl_lahir', status_mhs='$status', jurusan='$jurusan', jns_kelamin ='$kelamin',lulusan_sekolah='$asal_sekolah', pekerjaan='$pekerjaan', alamat='$alamat', kota='$kota',tahun_ajaran = '$tahun_ajaran', provinsi='$provinsi',telp='$telepon',email='$email' WHERE nim='$nim'") or die(mysqli_error($conn));
 
     header("Location: ../daftarfakultas.php");
 
@@ -86,90 +87,100 @@ if (isset($_POST['simpan'])) {
                             echo 'selected' ?>>duda</option>
                         </select>
                     </div>
+                    <!-- Tahun Ajaran -->
+                    <div class="mb-4 drop-shadow">
+                        <h6>Tahun Ajaran</h6>
+                        <select class="form-select mb-3" aria-label="Default select example" name="tahun_ajaran">
+                            <option class="fw-bold" disabled selected>Pilih</option>
+                            <option value="2023/2024">2023/2024</option>
+                            <option value="2024/2025">2024/2025</option>
+                            <option value="2025/2026">2025/2026</option>
+                        </select>
+                    </div>
                     <!-- Tgl Lahir -->
                     <div class="mb-4 drop-shadow">
                         <h6>Tgl Lahir</h6>
                         <input type="date" id="tgl_lahir" name="tgl_lahir" value="<?php echo $data['tgl_lahir']; ?>">
-                </div>
-                <!-- Jurusan Mahasiswa -->
-                <div class="mb-4 drop-shadow">
-                    <h6>Jurusan Mahasiswa</h6>
-                    <select class="form-select mb-3" aria-label="Default select example" name="jurusan">
-                        <option class="fw-bold" disabled selected>- Pilih - </option>
-                        <option class="fw-bold" disabled>- Teknik - </option>
-                        <option class="capitalize" value="Informatika" <?php if ($data['jurusan'] == 'Informatika')
-                            echo 'selected'; ?>>
-                            informatika</option>
-                        <option class="capitalize" value="Industri" <?php if ($data['jurusan'] == 'Industri')
-                            echo 'selected'; ?>>industri
-                        </option>
-                        <option class="capitalize" value="Mesin" <?php if ($data['jurusan'] == 'mesin')
-                            echo 'selected'; ?>>mesin</option>
-                        <option class="capitalize" value="Elektro" <?php if ($data['jurusan'] == 'Elektro')
-                            echo 'selected'; ?>>elektro
-                        </option>
-                        <option class="capitalize" value="Arsitek" <?php if ($data['jurusan'] == 'Arsitek')
-                            echo 'selected'; ?>>arsitek
-                        </option>
-                        <option class="fw-bold" disabled>- Budaya - </option>
-                        <option class="capitalize" value="Inggris" <?php if ($data['jurusan'] == 'Inggris')
-                            echo 'selected'; ?>>S. Inggris
-                        </option>
-                        <option class="capitalize" value="Jepang" <?php if ($data['jurusan'] == 'Jepang')
-                            echo 'selected'; ?>>S. Jepang
-                        </option>
-                        <option class="fw-bold" disabled>- Hukum- </option>
-                        <option class="capitalize" value="Hukum" <?php if ($data['jurusan'] == 'Hukum')
-                            echo 'selected'; ?>>Hukum
-                        </option>
-                    </select>
-                </div>
-                <!-- Asal Mahasiswa -->
-                <div class="mb-4 drop-shadow">
-                    <h6>Asal Sekolah</h6>
-                    <select class="form-select mb-3" aria-label="Default select example" name="asal_sekolah">
-                        <option class="fw-bold" disabled selected>Pilih</option>
-                        <option value="SMK" <?php if ($data == 'SMK')
-                            echo 'selected'; ?>>SMK</option>
-                        <option value="SMA" <?php if ($data == 'SMA')
-                            echo 'selected'; ?>>SMA</option>
-                    </select>
-                </div>
-                <!-- Pekejerjaan Mahasiswa -->
-                <div class="mb-4 drop-shadow">
-                    <h6>Pekerjaan</h6>
-                    <input type="text" class="form-control" name="pekerjaan" value="<?php echo $data['pekerjaan']; ?>">
-                </div>
-                <!-- Alamat Mahasiswa -->
-                <div class="row g-3 mb-3">
-                    <div class="col drop-shadow">
-                        <h6>Alamat</h6>
-                        <input type="text" class="form-control" name="alamat" value="<?php echo $data['alamat']; ?>">
                     </div>
-                    <div class="col drop-shadow">
-                        <h6>kota</h6>
-                        <input type="text" class="form-control" name="kota" value="<?php echo $data['kota']; ?>">
+                    <!-- Jurusan Mahasiswa -->
+                    <div class="mb-4 drop-shadow">
+                        <h6>Jurusan Mahasiswa</h6>
+                        <select class="form-select mb-3" aria-label="Default select example" name="jurusan">
+                            <option class="fw-bold" disabled selected>- Pilih - </option>
+                            <option class="fw-bold" disabled>- Teknik - </option>
+                            <option class="capitalize" value="Informatika" <?php if ($data['jurusan'] == 'Informatika')
+                                echo 'selected'; ?>>
+                                informatika</option>
+                            <option class="capitalize" value="Industri" <?php if ($data['jurusan'] == 'Industri')
+                                echo 'selected'; ?>>industri
+                            </option>
+                            <option class="capitalize" value="Mesin" <?php if ($data['jurusan'] == 'mesin')
+                                echo 'selected'; ?>>mesin</option>
+                            <option class="capitalize" value="Elektro" <?php if ($data['jurusan'] == 'Elektro')
+                                echo 'selected'; ?>>elektro
+                            </option>
+                            <option class="capitalize" value="Arsitek" <?php if ($data['jurusan'] == 'Arsitek')
+                                echo 'selected'; ?>>arsitek
+                            </option>
+                            <option class="fw-bold" disabled>- Budaya - </option>
+                            <option class="capitalize" value="Inggris" <?php if ($data['jurusan'] == 'Inggris')
+                                echo 'selected'; ?>>S. Inggris
+                            </option>
+                            <option class="capitalize" value="Jepang" <?php if ($data['jurusan'] == 'Jepang')
+                                echo 'selected'; ?>>S. Jepang
+                            </option>
+                            <option class="fw-bold" disabled>- Hukum- </option>
+                            <option class="capitalize" value="Hukum" <?php if ($data['jurusan'] == 'Hukum')
+                                echo 'selected'; ?>>Hukum
+                            </option>
+                        </select>
                     </div>
-                    <div class="col drop-shadow">
-                        <h6>provinsi</h6>
-                        <input type="text" class="form-control" name="provinsi"
-                            value="<?php echo $data['provinsi']; ?>">
+                    <!-- Asal Mahasiswa -->
+                    <div class="mb-4 drop-shadow">
+                        <h6>Asal Sekolah</h6>
+                        <select class="form-select mb-3" aria-label="Default select example" name="asal_sekolah">
+                            <option class="fw-bold" disabled selected>Pilih</option>
+                            <option value="SMK" <?php if ($data == 'SMK')
+                                echo 'selected'; ?>>SMK</option>
+                            <option value="SMA" <?php if ($data == 'SMA')
+                                echo 'selected'; ?>>SMA</option>
+                        </select>
                     </div>
-                </div>
-                <div class="mb-3 drop-shadow">
-                    <h6>Telepon</h6>
-                    <input type="text" class="form-control" name="telepon" value="<?php echo $data['telp']; ?>">
-                </div>
-                <div class="mb-3 drop-shadow">
-                    <h6>Email</h6>
-                    <input type="text" class="form-control" name="email" value="<?php echo $data['email']; ?>">
-                </div>
-                <div class="w-full">
-                    <button type="submit" name="simpan" onclick="history.back()"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Simpan</button>
-                    <a onclick="history.back()" type="kembali"
-                        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Kembali</a>
-                </div>
+                    <!-- Pekejerjaan Mahasiswa -->
+                    <div class="mb-4 drop-shadow">
+                        <h6>Pekerjaan</h6>
+                        <input type="text" class="form-control" name="pekerjaan" value="<?php echo $data['pekerjaan']; ?>">
+                    </div>
+                    <!-- Alamat Mahasiswa -->
+                    <div class="row g-3 mb-3">
+                        <div class="col drop-shadow">
+                            <h6>Alamat</h6>
+                            <input type="text" class="form-control" name="alamat" value="<?php echo $data['alamat']; ?>">
+                        </div>
+                        <div class="col drop-shadow">
+                            <h6>kota</h6>
+                            <input type="text" class="form-control" name="kota" value="<?php echo $data['kota']; ?>">
+                        </div>
+                        <div class="col drop-shadow">
+                            <h6>provinsi</h6>
+                            <input type="text" class="form-control" name="provinsi"
+                                value="<?php echo $data['provinsi']; ?>">
+                        </div>
+                    </div>
+                    <div class="mb-3 drop-shadow">
+                        <h6>Telepon</h6>
+                        <input type="text" class="form-control" name="telepon" value="<?php echo $data['telp']; ?>">
+                    </div>
+                    <div class="mb-3 drop-shadow">
+                        <h6>Email</h6>
+                        <input type="text" class="form-control" name="email" value="<?php echo $data['email']; ?>">
+                    </div>
+                    <div class="w-full">
+                        <button type="submit" name="simpan" onclick="history.back()"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Simpan</button>
+                        <a onclick="history.back()" type="kembali"
+                            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Kembali</a>
+                    </div>
             </form>
         </div>
     </div>
