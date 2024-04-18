@@ -63,6 +63,7 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
                 <th scope="col" class="px-6 py-4">NAMA</th>
                 <th scope="col" class="px-6 py-4">Alamat</th>
                 <th scope="col" class="px-6 py-4">Jurusan</th>
+                <th scope="col" class="px-6 py-4">Tgl Lahir</th>
                 <th scope="col" class="px-6 py-4">Tahun ajaran</th>
                 <th scope="col" class="px-6 py-4">Aksi</th>
                 <!-- Kolom untuk aksi -->
@@ -87,6 +88,9 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['jurusan']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['tgl_lahir']; ?>
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['tahun_ajaran']; ?>
@@ -142,6 +146,7 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
                 <th scope="col" class="px-6 py-4">NAMA</th>
                 <th scope="col" class="px-6 py-4">Alamat</th>
                 <th scope="col" class="px-6 py-4">Jurusan</th>
+                <th scope="col" class="px-6 py-4">Tgl Lahir</th>
                 <th scope="col" class="px-6 py-4">Tahun ajaran</th>
                 <th scope="col" class="px-6 py-4">Aksi</th>
                 <!-- Kolom untuk aksi -->
@@ -166,6 +171,9 @@ $tbl_Jepang = mysqli_query($conn, $Jepang);
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['jurusan']; ?>
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-300">
+                      <?php echo $row['tgl_lahir']; ?>
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300">
                       <?php echo $row['tahun_ajaran']; ?>
